@@ -3,10 +3,10 @@ import PricingCardDetails from "./PricingCardDetails";
 
 const PricingCard = () => {
 
-const pricingData= [
+const pricingData= [ 
   {
     "id": 1,
-    "title": "Basic",
+    "title": "Starter",
     "tag": "",
     "description": "Good for beginners",
     "price": 0,
@@ -58,7 +58,7 @@ const pricingData= [
 
   return (
     <div>
-      <div className="container mx-auto py-20">
+      <div className="container mx-auto pt-5 pb-22">
         <div className="text-center space-y-5 py-3">
           <h1 className="text-3xl md:text-5xl font-bold ">Simple, Transparent Pricing</h1>
           <p className="text-balance ">

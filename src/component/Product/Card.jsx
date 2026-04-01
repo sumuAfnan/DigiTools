@@ -62,7 +62,7 @@ const Card = ({ Cards, totalPrice, setCards }) => {
 
                         <button
                           onClick={() => handleDelete(card)}
-                          className="btn bg-red-400 rounded-lg cursor-pointer"
+                          className="btn bg-blue-400 rounded-lg cursor-pointer"
                         >
                           <MdDelete />
                         </button>
@@ -72,14 +72,14 @@ const Card = ({ Cards, totalPrice, setCards }) => {
                 ))}
 
                 <div className="w-full  rounded-2xl flex items-center justify-between gap-5 px-5 py-5  mt-8">
-                  <h4 className="text-2xl font-bold text-yellow-400 ">Total</h4>
+                  <h4 className="text-2xl font-bold text-[#4f39f6] ">Total</h4>
                   <h4 className="text-2xl font-bold text-red-400">
                     $ {totalPrice}
                   </h4>
                 </div>
                 <button
                   onClick={handleCheckOut}
-                  className=" w-full bg-red-600 text-white py-3 rounded-lg mt-8"
+                  className=" w-full bg-[#4f39f6] text-white py-3 rounded-lg mt-8"
                 >
                   Proceed to Checkout
                 </button>

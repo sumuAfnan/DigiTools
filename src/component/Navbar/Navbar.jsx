@@ -16,7 +16,7 @@ const Navbar = ({ Cards, totalPrice }) => {
 
   return (
     // shadow-lg  full screen
-    <div className="shadow-lg bg-base-100"> 
+    <div className="shadow-lg bg-base-100 fixed top-0 left-0 w-full z-50">
       {/* container & mx-auto content middle */}
       <div className="navbar container mx-auto px-4 md:px-10">
         
@@ -43,7 +43,11 @@ const Navbar = ({ Cards, totalPrice }) => {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5" />
                 </svg>
-                <span className="badge badge-sm indicator-item">{Cards.length}</span>
+               {Cards.length > 0 && (
+  <span className="badge badge-sm indicator-item">
+    {Cards.length}
+  </span>
+)}
               </div>
             </div>
             <div tabIndex={0} className="card card-compact dropdown-content bg-base-100 mt-3 w-52 shadow-xl z-50">

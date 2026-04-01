@@ -28,14 +28,16 @@ const PricingCardDetails = ({ item }) => {
         {/* Title */}
 
         <div>
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">{title}</h3>
-          <p className="text-base ">{description}</p>
+  <h3 className="text-2xl font-bold text-gray-800 mb-4">{title}</h3>
+  
+  {/* Description - ekhane text-gray-900 add kora hoyeche dark korar jonno */}
+  <p className="text-base text-gray-900 font-medium mb-4">{description}</p>
 
-          <div className="flex items-center ">
-            <h5 className="text-3xl text-black font-bold">${price}</h5>
-            <p className="text-gray-300">/{duration}</p>
-          </div>
-        </div>
+  <div className="flex items-center ">
+    <h5 className="text-3xl text-black font-bold">${price}</h5>
+    <p className="text-gray-400">/{duration}</p>
+  </div>
+</div>
 
         {/* features list */}
         <ul className="space-y-4 ">
