@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "ResumePro AI",
+    "description": "AI-powered resume builder\nOptimized for ATS systems",
+    "price": 9,
+    "period": "monthly",
+    "tag": "popular",
+    "tagType": "popular",
+    "features": [
+      "100+ templates",
+      "ATS optimization",
+      "Export to PDF"
+    ],
+    "icon": "https://img.icons8.com/color/96/resume.png"
+  },
+  {
+    "id": 2,
+    "name": "Designify",
+    "description": "Create stunning graphics\nNo design skills required",
+    "price": 19,
+    "period": "monthly",
+    "tag": "best seller",
+    "tagType": "best seller",
+    "features": [
+      "Drag & drop editor",
+      "5000+ assets",
+      "Social media templates"
+    ],
+    "icon": "https://img.icons8.com/color/96/design.png"
+  },
+  {
+    "id": 3,
+    "name": "CodeBoost",
+    "description": "AI coding assistant\nWrite code faster",
+    "price": 0,
+    "period": "one-time",
+    "tag": "new",
+    "tagType": "new",
+    "features": [
+      "Auto code completion",
+      "Bug detection",
+      "Multi-language support"
+    ],
+    "icon": "https://img.icons8.com/color/96/source-code.png"
+  },
+  {
+    "id": 4,
+    "name": "FitTrack Pro",
+    "description": "Track your fitness goals Stay healthy daily",
+    "price": 29,
+    "period": "yearly",
+    "tag": "popular",
+    "tagType": "popular",
+    "features": [
+      "Workout planner",
+      "Calorie tracker",
+      "Progress analytics"
+    ],
+    "icon": "https://i.ibb.co.com/bg72Sv63/icons8-strength-48.png"
+  },
+  {
+    "id": 5,
+    "name": "Learnify",
+    "description": "Online learning platform Upgrade your skills",
+    "price": 15,
+    "period": "monthly",
+    "tag": "best seller",
+    "tagType": "best seller",
+    "features": [
+      "1000+ courses",
+      "Certificates",
+      "Offline access"
+    ],
+    "icon": "https://i.ibb.co.com/Mxnd7tGN/icons8-online-94.png"
+  },
+  {
+    "id": 6,
+    "name": "FinanceMate",
+    "description": "Manage your expenses\nSmart budgeting tool",
+    "price": 5,
+    "period": "monthly",
+    "tag": "new",
+    "tagType": "new",
+    "features": [
+      "Expense tracking",
+      "Budget planning",
+      "Insights & reports"
+    ],
+    "icon": "https://img.icons8.com/color/96/money.png"
+  },
+  {
+    "id": 7,
+    "name": "CloudBox",
+    "description": "Secure cloud storage\nAccess anywhere anytime",
+    "price": 49,
+    "period": "yearly",
+    "tag": "popular",
+    "tagType": "popular",
+    "features": [
+      "1TB storage",
+      "File sharing",
+      "Data encryption"
+    ],
+    "icon": "https://img.icons8.com/color/96/cloud-storage.png"
+  },
+  {
+    "id": 8,
+    "name": "TaskFlow",
+    "description": "Boost productivity\nManage tasks efficiently",
+    "price": 12,
+    "period": "monthly",
+    "tag": "best seller",
+    "tagType": "best seller",
+    "features": [
+      "Task scheduling",
+      "Team collaboration",
+      "Reminders & notifications"
+    ],
+    "icon": "https://img.icons8.com/color/96/task.png"
+  }
+]
