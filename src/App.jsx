@@ -1,121 +1,89 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { Suspense, useState } from "react";
+import "./App.css";
+import Banner from "./component/Banner/Banner";
+import BannerCount from "./component/Banner/BannerCount";
+import Footer from "./component/Footer/Footer";
+import Navbar from "./component/Navbar/Navbar";
+import PricingCard from "./component/Pricing/PricingCard";
+import Product from "./component/Product/Product";
+import ProductCard from "./component/Product/ProductCard";
+import StepsCard from "./component/Steps/StepsCard";
+import Transform from "./component/Transform/Transform";
+import Card from "./component/Product/Card";
+
+const getModelsData = async () => {
+  const res = await fetch("/productData.json");
+  return res.json();
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  const modelsPromise = getModelsData();
+
+  const [activeTab, setActiveTab] = useState("Product");
+
+  const [Cards, setCards] = useState([]);
+
+  const totalPrice = Cards.reduce((sum, card) => sum + card.price, 0);
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+      <header>
+        <Navbar Cards={Cards} totalPrice={totalPrice} />
+      </header>
+      <main>
+        <Banner />
+        <BannerCount />
+        {/*  */}
+        <Product />
+
+        {/* name of each tab group should be unique */}
+        <div className="container mx-auto w-68  ">
+          <div className="tabs tabs-box rounded-full justify-center gap-2 ">
+            <input
+              type="radio"
+              name="my_tabs_1"
+              className="tab  px-8 py-2 rounded-full "
+              aria-label="Product"
+              onClick={() => setActiveTab("Product")}
+              defaultChecked
+            />
+            <input
+              type="radio"
+              name="my_tabs_1"
+              className="tab  px-8 py-2 rounded-full "
+              aria-label={`Card (${Cards.length})`}
+              onClick={() => setActiveTab("Card")}
+            />
+          </div>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+
+        <Suspense
+          fallback={
+            <span className="loading loading-spinner text-primary"></span>
+          }
         >
-          Count is {count}
-        </button>
-      </section>
+          {activeTab === "Product" && (
+            <ProductCard
+              modelsPromise={modelsPromise}
+              Cards={Cards}
+              setCards={setCards}
+            />
+          )}
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+          {activeTab === "Card" && (
+            <Card Cards={Cards} setCards={setCards} totalPrice={totalPrice} />
+          )}
+        </Suspense>
+        {/*  */}
+        <StepsCard />
+        <PricingCard />
+        <Transform />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
