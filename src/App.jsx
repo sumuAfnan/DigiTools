@@ -36,26 +36,37 @@ function App() {
         {/*  */}
         <Product />
 
-        {/* name of each tab group should be unique */}
-        <div className="container mx-auto w-68  ">
-          <div className="tabs tabs-box rounded-full justify-center gap-2 ">
-            <input
-              type="radio"
-              name="my_tabs_1"
-              className="tab  px-8 py-2 rounded-full "
-              aria-label="Product"
-              onClick={() => setActiveTab("Product")}
-              defaultChecked
-            />
-            <input
-              type="radio"
-              name="my_tabs_1"
-              className="tab  px-8 py-2 rounded-full "
-              aria-label={`Card (${Cards.length})`}
-              onClick={() => setActiveTab("Card")}
-            />
-          </div>
-        </div>
+<div className="flex justify-center mt-5 mb-5">
+  
+  {/* Shada ronger background ebong rounded border er moddhe button gula thakbe */}
+  <div className="inline-flex bg-gray-100 p-1 rounded-full border border-gray-200 shadow-sm">
+    
+    {/* Product Button - Jodi activeTab 'Product' hoy, tobe beguni (purple) rong dekhabe */}
+    <button
+      onClick={() => setActiveTab("Product")}
+      className={`px-8 py-2 rounded-full font-semibold transition-all duration-300 ${
+        activeTab === "Product"
+          ? "bg-[#7c3aed] text-white shadow-lg" // Active thakle beguni background ebong shada lekha
+          : "text-gray-600 hover:text-black"   // Active na thakle gray ronger lekha
+      }`}
+    >
+      Products
+    </button>
+
+    {/* Cart Button - Ekhane click korle Cart page ashbe ebong koyta item ache ta dekhabe */}
+    <button
+      onClick={() => setActiveTab("Card")}
+      className={`px-8 py-2 rounded-full font-semibold transition-all duration-300 ${
+        activeTab === "Card"
+          ? "bg-[#7c3aed] text-white shadow-lg" // Click korle beguni hoye jabe
+          : "text-gray-600 hover:text-black"   // Normal obosthay halka gray thakbe
+      }`}
+    >
+      Cart ({Cards.length}) 
+    </button>
+  </div>
+</div>
+
 
         <Suspense
           fallback={
